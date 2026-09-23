@@ -1,1 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Get VIP Free · AnimalClock</title>
+  <meta name="description" content="Free lifetime VIP offer rules for AnimalClock" />
+  <style>
+    :root {
+      --bg: #f7f6f3;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #5c5c5c;
+      --line: #e6e4df;
+      --accent: #2f6f4e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    header {
+      background: var(--card);
+      border-bottom: 1px solid var(--line);
+      padding: 28px 20px 18px;
+    }
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 28px 20px 64px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 1.75rem;
+      font-weight: 700;
+    }
+    h2 {
+      margin: 28px 0 12px;
+      font-size: 1.15rem;
+      font-weight: 650;
+      color: var(--accent);
+    }
+    p, li { color: var(--text); }
+    .meta, .muted { color: var(--muted); font-size: 0.95rem; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 4px 18px 8px;
+      margin: 16px 0;
+    }
+    ol { padding-left: 1.25rem; }
+    a { color: var(--accent); }
+    .lang-switch {
+      margin-top: 14px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .lang-switch button {
+      appearance: none;
+      cursor: pointer;
+      text-decoration: none;
+      border: 1px solid var(--line);
+      background: var(--bg);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      color: var(--text);
+    }
+    .lang-switch button.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    footer {
+      margin-top: 40px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <main style="padding-top: 0; padding-bottom: 0;">
+      <h1 id="title">Get VIP Free</h1>
+      <p class="meta" id="subtitle">AnimalClock · Lifetime VIP</p>
+      <div class="lang-switch" id="langSwitch" aria-label="Language"></div>
+    </main>
+  </header>
 
+  <main>
+    <p id="intro"></p>
+    <div class="card">
+      <h2 id="rulesHeading"></h2>
+      <ol>
+        <li id="ruleTeacher"></li>
+        <li id="ruleSocial"></li>
+      </ol>
+    </div>
+    <p id="howto"></p>
+    <p id="contact"></p>
+    <p class="muted" id="note"></p>
+    <footer>
+      <p id="footer"></p>
+    </footer>
+  </main>
+
+  <script>
+    const SUPPORT_EMAIL = "zybshahe@163.com";
+    const LANGS = [
+      { id: "zh-Hans", label: "简体中文" },
+      { id: "zh-Hant", label: "繁體中文" },
+      { id: "en", label: "English" },
+      { id: "ja", label: "日本語" },
+      { id: "ko", label: "한국어" },
+      { id: "de", label: "Deutsch" },
+      { id: "fr", label: "Français" },
+      { id: "it", label: "Italiano" },
+      { id: "es", label: "Español" },
+      { id: "pt-BR", label: "Português" },
+      { id: "ru", label: "Русский" },
+      { id: "id", label: "Indonesia" },
+      { id: "vi", label: "Tiếng Việt" },
+      { id: "tr", label: "Türkçe" },
+      { id: "bn", label: "বাংলা" },
+    ];
+
+    const T = {
+      "zh-Hans": {
+        title: "免费获取 VIP",
+        subtitle: "动物闹铃 · 永久 VIP",
+        intro: "如果你觉得这款 App 还不错，并且想要免费获取永久 VIP，活动规则如下：",
+        rulesHeading: "活动规则",
+        ruleTeacher: "教师免费获取：发送邮件说明你的意图，并证明你是一名教师（例如教师证、学校邮箱或在职证明）。请勿发送含有学生出镜的照片。",
+        ruleSocial: "主流社交媒体集赞获取：在你们国家的主流社交媒体发帖介绍本 App，获得至少 30 个赞之后，发送邮件说明意图，并附上集赞截图。",
+        howto: "确认通过后，我们会通过邮件发送永久 VIP 的官方兑换码（Apple Offer Code）。",
+        contact: "联系邮箱：",
+        note: "每人限参与一次；兑换规则以 Apple 为准。本活动不要求 App Store 评分或评论。",
+        footer: "© AnimalClock · 免费 VIP 活动说明",
+      },
+      "zh-Hant": {
+        title: "免費獲取 VIP",
+        subtitle: "動物鬧鐘 · 永久 VIP",
+        intro: "如果你覺得這款 App 還不錯，並且想要免費獲取永久 VIP，活動規則如下：",
+        rulesHeading: "活動規則",
+        ruleTeacher: "教師免費獲取：傳送郵件說明你的意圖，並證明你是一名教師（例如教師證、學校信箱或在職證明）。請勿傳送含有學生出鏡的照片。",
+        ruleSocial: "主流社群媒體集讚獲取：在你們國家的主流社群媒體發文介紹本 App，獲得至少 30 個讚之後，傳送郵件說明意圖，並附上集讚截圖。",
+        howto: "確認通過後，我們會透過郵件傳送永久 VIP 的官方兌換碼（Apple Offer Code）。",
+        contact: "聯絡信箱：",
+        note: "每人限參與一次；兌換規則以 Apple 為準。本活動不要求 App Store 評分或評論。",
+        footer: "© AnimalClock · 免費 VIP 活動說明",
+      },
+      en: {
+        title: "Get VIP Free",
+        subtitle: "AnimalClock · Lifetime VIP",
+        intro: "If you like this app and want a free lifetime VIP, here are the rules:",
+        rulesHeading: "Rules",
+        ruleTeacher: "Teachers: Email us with your request and proof that you are a teacher (for example a teacher ID, school email, or employment letter). Do not send photos of students.",
+        ruleSocial: "Social media: Post about the app on a mainstream social network in your country, collect at least 30 likes, then email us with your request and a screenshot of the likes.",
+        howto: "After we confirm, we will email you an official Apple Offer Code for lifetime VIP.",
+        contact: "Contact:",
+        note: "One participation per person. Redemption follows Apple’s rules. This offer does not require an App Store rating or review.",
+        footer: "© AnimalClock · Free VIP offer",
+      },
+      ja: {
+        title: "VIP を無料で入手",
+        subtitle: "AnimalClock · 永久 VIP",
+        intro: "このアプリが気に入り、永久 VIP を無料で入手したい場合のルールは次のとおりです：",
+        rulesHeading: "ルール",
+        ruleTeacher: "教員の方：メールで希望を伝え、教員であることの証明（教員証、学校メール、在職証明など）を添付してください。児童・生徒が写った写真は送らないでください。",
+        ruleSocial: "SNS：お住まいの国の主要な SNS でアプリについて投稿し、友人などから 30 件以上の「いいね」を集めたら、希望内容とスクリーンショットをメールで送ってください。",
+        howto: "確認後、永久 VIP 用の公式 Apple Offer Code をメールでお送りします。",
+        contact: "連絡先：",
+        note: "お一人様一回まで。引き換えは Apple の規則に従います。App Store の評価やレビューは不要です。",
+        footer: "© AnimalClock · 無料 VIP",
+      },
+      ko: {
+        title: "VIP 무료 받기",
+        subtitle: "AnimalClock · 평생 VIP",
+        intro: "이 앱이 마음에 들고 평생 VIP를 무료로 받고 싶다면 규칙은 다음과 같습니다:",
+        rulesHeading: "규칙",
+        ruleTeacher: "교사: 이메일에 요청과 교사임을 증명하는 자료(교사증, 학교 이메일, 재직 증명 등)를 보내 주세요. 학생이 나온 사진은 보내지 마세요.",
+        ruleSocial: "소셜 미디어: 거주 국가의 주요 소셜 네트워크에 앱 소개 글을 올리고 좋아요를 최소 30개 모은 뒤, 요청과 스크린샷을 이메일로 보내 주세요.",
+        howto: "확인 후 평생 VIP용 공식 Apple Offer Code를 이메일로 보내 드립니다.",
+        contact: "연락처:",
+        note: "1인 1회. 교환은 Apple 규칙을 따릅니다. App Store 평점/리뷰는 필요하지 않습니다.",
+        footer: "© AnimalClock · 무료 VIP",
+      },
+      de: {
+        title: "VIP kostenlos holen",
+        subtitle: "AnimalClock · Lifetime-VIP",
+        intro: "Wenn dir die App gefällt und du kostenloses Lifetime-VIP möchtest, gelten folgende Regeln:",
+        rulesHeading: "Regeln",
+        ruleTeacher: "Lehrkräfte: Schreib uns eine E-Mail mit deinem Wunsch und einem Nachweis, dass du Lehrkraft bist (z. B. Lehrerausweis, Schul-E-Mail oder Beschäftigungsnachweis). Bitte keine Fotos von Schülerinnen und Schülern senden.",
+        ruleSocial: "Soziale Medien: Veröffentliche in einem gängigen sozialen Netzwerk deines Landes einen Beitrag zur App, sammle mindestens 30 Likes und sende uns dann eine E-Mail mit Wunsch und Screenshot.",
+        howto: "Nach Prüfung senden wir dir per E-Mail einen offiziellen Apple Offer Code für Lifetime-VIP.",
+        contact: "Kontakt:",
+        note: "Einmal pro Person. Einlösung nach Apple-Regeln. Keine App-Store-Bewertung oder Rezension erforderlich.",
+        footer: "© AnimalClock · Kostenloses VIP",
+      },
+      fr: {
+        title: "Obtenir VIP gratuitement",
+        subtitle: "AnimalClock · VIP à vie",
+        intro: "Si vous aimez cette app et souhaitez un VIP à vie gratuit, voici les règles :",
+        rulesHeading: "Règles",
+        ruleTeacher: "Enseignants : envoyez un e-mail avec votre demande et une preuve que vous êtes enseignant (carte professionnelle, e-mail scolaire ou attestation). N’envoyez pas de photos d’élèves.",
+        ruleSocial: "Réseaux sociaux : publiez sur un réseau social grand public de votre pays, obtenez au moins 30 likes, puis envoyez un e-mail avec votre demande et une capture d’écran.",
+        howto: "Après vérification, nous vous enverrons par e-mail un Apple Offer Code officiel pour le VIP à vie.",
+        contact: "Contact :",
+        note: "Une participation par personne. L’échange suit les règles d’Apple. Aucune note ni avis App Store n’est requis.",
+        footer: "© AnimalClock · VIP gratuit",
+      },
+      it: {
+        title: "Ottieni VIP gratis",
+        subtitle: "AnimalClock · VIP a vita",
+        intro: "Se ti piace l’app e vuoi un VIP a vita gratis, ecco le regole:",
+        rulesHeading: "Regole",
+        ruleTeacher: "Insegnanti: inviaci un’email con la richiesta e una prova che sei un insegnante (badge, email scolastica o lettera di impiego). Non inviare foto di studenti.",
+        ruleSocial: "Social: pubblica su un social network principale del tuo Paese, raccogli almeno 30 like, poi inviaci un’email con la richiesta e uno screenshot.",
+        howto: "Dopo la verifica ti invieremo via email un Apple Offer Code ufficiale per il VIP a vita.",
+        contact: "Contatto:",
+        note: "Una partecipazione a persona. Il riscatto segue le regole Apple. Non è richiesta una valutazione o recensione sull’App Store.",
+        footer: "© AnimalClock · VIP gratis",
+      },
+      es: {
+        title: "Obtener VIP gratis",
+        subtitle: "AnimalClock · VIP de por vida",
+        intro: "Si te gusta la app y quieres VIP de por vida gratis, estas son las reglas:",
+        rulesHeading: "Reglas",
+        ruleTeacher: "Docentes: envíanos un correo con tu solicitud y una prueba de que eres docente (carné, correo escolar o carta laboral). No envíes fotos de estudiantes.",
+        ruleSocial: "Redes sociales: publica en una red social principal de tu país, consigue al menos 30 me gusta y luego envíanos un correo con la solicitud y una captura.",
+        howto: "Tras confirmarlo, te enviaremos por correo un Apple Offer Code oficial para VIP de por vida.",
+        contact: "Contacto:",
+        note: "Una participación por persona. El canje sigue las reglas de Apple. No se requiere valoración ni reseña en App Store.",
+        footer: "© AnimalClock · VIP gratis",
+      },
+      "pt-BR": {
+        title: "Obter VIP grátis",
+        subtitle: "AnimalClock · VIP vitalício",
+        intro: "Se você gosta do app e quer VIP vitalício grátis, estas são as regras:",
+        rulesHeading: "Regras",
+        ruleTeacher: "Professores: envie um e-mail com o pedido e uma prova de que você é professor (carteira, e-mail escolar ou declaração de emprego). Não envie fotos de alunos.",
+        ruleSocial: "Redes sociais: publique em uma rede social principal do seu país, reúna pelo menos 30 curtidas e envie um e-mail com o pedido e um print.",
+        howto: "Após confirmação, enviaremos por e-mail um Apple Offer Code oficial para VIP vitalício.",
+        contact: "Contato:",
+        note: "Uma participação por pessoa. O resgate segue as regras da Apple. Não é necessária avaliação ou comentário na App Store.",
+        footer: "© AnimalClock · VIP grátis",
+      },
+      ru: {
+        title: "Получить VIP бесплатно",
+        subtitle: "AnimalClock · Пожизненный VIP",
+        intro: "Если вам нравится приложение и вы хотите бесплатный пожизненный VIP, правила такие:",
+        rulesHeading: "Правила",
+        ruleTeacher: "Учителя: напишите нам письмо с запросом и подтверждением, что вы учитель (удостоверение, школьная почта или справка с работы). Не присылайте фото учеников.",
+        ruleSocial: "Соцсети: опубликуйте пост о приложении в популярной сети вашей страны, наберите не менее 30 лайков, затем пришлите письмо с запросом и скриншотом.",
+        howto: "После проверки мы отправим официальный Apple Offer Code для пожизненного VIP.",
+        contact: "Контакт:",
+        note: "Одно участие на человека. Обмен по правилам Apple. Оценка или отзыв в App Store не требуются.",
+        footer: "© AnimalClock · Бесплатный VIP",
+      },
+      id: {
+        title: "Dapatkan VIP gratis",
+        subtitle: "AnimalClock · VIP seumur hidup",
+        intro: "Jika Anda menyukai aplikasi ini dan ingin VIP seumur hidup gratis, aturannya sebagai berikut:",
+        rulesHeading: "Aturan",
+        ruleTeacher: "Guru: kirim email berisi permintaan dan bukti bahwa Anda guru (ID guru, email sekolah, atau surat keterangan kerja). Jangan kirim foto siswa.",
+        ruleSocial: "Media sosial: posting di jejaring sosial utama di negara Anda, kumpulkan minimal 30 suka, lalu kirim email berisi permintaan dan tangkapan layar.",
+        howto: "Setelah dikonfirmasi, kami akan mengirim Apple Offer Code resmi untuk VIP seumur hidup.",
+        contact: "Kontak:",
+        note: "Satu kali per orang. Penukaran mengikuti aturan Apple. Tidak perlu rating atau ulasan App Store.",
+        footer: "© AnimalClock · VIP gratis",
+      },
+      vi: {
+        title: "Nhận VIP miễn phí",
+        subtitle: "AnimalClock · VIP trọn đời",
+        intro: "Nếu bạn thích ứng dụng này và muốn VIP trọn đời miễn phí, quy tắc như sau:",
+        rulesHeading: "Quy tắc",
+        ruleTeacher: "Giáo viên: gửi email nêu mong muốn và chứng minh bạn là giáo viên (thẻ giáo viên, email trường hoặc giấy xác nhận công tác). Không gửi ảnh học sinh.",
+        ruleSocial: "Mạng xã hội: đăng bài trên mạng xã hội phổ biến ở nước bạn, nhận ít nhất 30 lượt thích, rồi gửi email kèm mong muốn và ảnh chụp màn hình.",
+        howto: "Sau khi xác nhận, chúng tôi sẽ gửi Apple Offer Code chính thức cho VIP trọn đời.",
+        contact: "Liên hệ:",
+        note: "Mỗi người một lần. Đổi mã theo quy tắc của Apple. Không yêu cầu đánh giá hay nhận xét trên App Store.",
+        footer: "© AnimalClock · VIP miễn phí",
+      },
+      tr: {
+        title: "Ücretsiz VIP al",
+        subtitle: "AnimalClock · Ömür boyu VIP",
+        intro: "Uygulamayı beğeniyorsanız ve ücretsiz ömür boyu VIP istiyorsanız kurallar şunlardır:",
+        rulesHeading: "Kurallar",
+        ruleTeacher: "Öğretmenler: isteğinizi ve öğretmen olduğunuzu gösteren bir kanıtı (kimlik, okul e-postası veya iş belgesi) e-posta ile gönderin. Öğrenci fotoğrafı göndermeyin.",
+        ruleSocial: "Sosyal medya: ülkenizdeki yaygın bir sosyal ağda uygulama hakkında paylaşım yapın, en az 30 beğeni toplayın, ardından istek ve ekran görüntüsüyle e-posta gönderin.",
+        howto: "Onaydan sonra ömür boyu VIP için resmi bir Apple Offer Code e-posta ile gönderilir.",
+        contact: "İletişim:",
+        note: "Kişi başı bir katılım. Kullanım Apple kurallarına göredir. App Store puanı veya yorumu gerekmez.",
+        footer: "© AnimalClock · Ücretsiz VIP",
+      },
+      bn: {
+        title: "বিনামূল্যে VIP নিন",
+        subtitle: "AnimalClock · লাইফটাইম VIP",
+        intro: "আপনি যদি অ্যাপটি পছন্দ করেন এবং বিনামূল্যে লাইফটাইম VIP চান, নিয়মগুলো এমন:",
+        rulesHeading: "নিয়ম",
+        ruleTeacher: "শিক্ষক: ইমেইলে আপনার অনুরোধ এবং শিক্ষক হওয়ার প্রমাণ পাঠান (শিক্ষক আইডি, স্কুল ইমেইল বা চাকরির চিঠি)। শিক্ষার্থীর ছবি পাঠাবেন না।",
+        ruleSocial: "সোশ্যাল মিডিয়া: আপনার দেশের প্রধান সোশ্যাল নেটওয়ার্কে অ্যাপ সম্পর্কে পোস্ট করুন, কমপক্ষে ৩০টি লাইক সংগ্রহ করুন, তারপর অনুরোধ ও স্ক্রিনশটসহ ইমেইল পাঠান।",
+        howto: "নিশ্চিত হওয়ার পর আমরা লাইফটাইম VIP-এর অফিসিয়াল Apple Offer Code ইমেইলে পাঠাব।",
+        contact: "যোগাযোগ:",
+        note: "প্রতি ব্যক্তি একবার। রিডিম্পশন Apple-এর নিয়ম অনুসারে। App Store রেটিং বা রিভিউ লাগবে না।",
+        footer: "© AnimalClock · বিনামূল্যে VIP",
+      },
+    };
+
+    function normalizeLang(raw) {
+      if (!raw) return null;
+      const tag = String(raw).replace(/_/g, "-");
+      const lower = tag.toLowerCase();
+      if (T[tag]) return tag;
+      if (lower.startsWith("zh")) {
+        if (lower.includes("hant") || lower.startsWith("zh-tw") || lower.startsWith("zh-hk") || lower.startsWith("zh-mo")) {
+          return "zh-Hant";
+        }
+        return "zh-Hans";
+      }
+      if (lower.startsWith("pt")) return "pt-BR";
+      const base = lower.split("-")[0];
+      const map = {
+        en: "en", ja: "ja", ko: "ko", de: "de", fr: "fr", it: "it",
+        es: "es", ru: "ru", id: "id", vi: "vi", tr: "tr", bn: "bn",
+      };
+      return map[base] || null;
+    }
+
+    function currentLangFromURL() {
+      const params = new URLSearchParams(window.location.search);
+      return normalizeLang(params.get("lang")) || "en";
+    }
+
+    function setLang(lang, pushHistory) {
+      const id = normalizeLang(lang) || "en";
+      const copy = T[id] || T.en;
+      document.documentElement.lang = id;
+      document.title = copy.title + " · AnimalClock";
+      document.getElementById("title").textContent = copy.title;
+      document.getElementById("subtitle").textContent = copy.subtitle;
+      document.getElementById("intro").textContent = copy.intro;
+      document.getElementById("rulesHeading").textContent = copy.rulesHeading;
+      document.getElementById("ruleTeacher").textContent = copy.ruleTeacher;
+      document.getElementById("ruleSocial").textContent = copy.ruleSocial;
+      document.getElementById("howto").textContent = copy.howto;
+      document.getElementById("note").textContent = copy.note;
+      document.getElementById("footer").textContent = copy.footer;
+
+      const contactEl = document.getElementById("contact");
+      contactEl.innerHTML = "";
+      contactEl.appendChild(document.createTextNode(copy.contact + " "));
+      const mail = document.createElement("a");
+      mail.href = "mailto:" + SUPPORT_EMAIL + "?subject=" + encodeURIComponent(copy.title);
+      mail.textContent = SUPPORT_EMAIL;
+      contactEl.appendChild(mail);
+
+      document.querySelectorAll("#langSwitch button").forEach((btn) => {
+        btn.classList.toggle("active", btn.dataset.lang === id);
+      });
+
+      if (pushHistory) {
+        const url = new URL(window.location.href);
+        url.searchParams.set("lang", id);
+        history.replaceState(null, "", url.toString());
+      }
+    }
+
+    function buildSwitcher() {
+      const root = document.getElementById("langSwitch");
+      LANGS.forEach((item) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.dataset.lang = item.id;
+        btn.textContent = item.label;
+        btn.addEventListener("click", () => setLang(item.id, true));
+        root.appendChild(btn);
+      });
+    }
+
+    buildSwitcher();
+    setLang(currentLangFromURL(), false);
+  </script>
+</body>
+</html>
