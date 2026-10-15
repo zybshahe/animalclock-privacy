@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy · 宇宙时钟 Universe Clock</title>
+  <meta name="description" content="Privacy Policy for Universe Clock (宇宙时钟)" />
+  <style>
+    :root {
+      --bg: #f4f6f8;
+      --card: #ffffff;
+      --text: #15202b;
+      --muted: #5a6570;
+      --line: #e2e7ec;
+      --accent: #1f4e79;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC",
+        "Hiragino Sans GB", "Hiragino Sans", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    header {
+      background: var(--card);
+      border-bottom: 1px solid var(--line);
+      padding: 28px 20px 18px;
+    }
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 28px 20px 64px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 1.75rem;
+      font-weight: 700;
+    }
+    h2 {
+      margin: 28px 0 12px;
+      font-size: 1.15rem;
+      font-weight: 650;
+      color: var(--accent);
+    }
+    p, li { color: var(--text); }
+    .meta, .muted { color: var(--muted); font-size: 0.95rem; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 4px 18px 8px;
+      margin: 16px 0;
+    }
+    ul { padding-left: 1.25rem; }
+    li { margin: 8px 0; }
+    a { color: var(--accent); }
+    code {
+      font-size: 0.9em;
+      background: var(--bg);
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    .lang-switch {
+      margin-top: 14px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .lang-switch button {
+      appearance: none;
+      cursor: pointer;
+      border: 1px solid var(--line);
+      background: var(--bg);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      color: var(--text);
+    }
+    .lang-switch button.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    footer {
+      margin-top: 40px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <main style="padding-top: 0; padding-bottom: 0;">
+      <h1 id="title">宇宙时钟 · 隐私政策</h1>
+      <p class="meta" id="subtitle">Universe Clock Privacy Policy</p>
+      <p class="meta" id="effective"></p>
+      <div class="lang-switch" id="langSwitch" aria-label="Language"></div>
+    </main>
+  </header>
+
+  <main>
+    <div class="card">
+      <p id="intro"></p>
+    </div>
+
+    <h2 id="h1"></h2>
+    <p id="developer"></p>
+    <p id="contact"></p>
+
+    <h2 id="h2"></h2>
+    <p id="collectLead"></p>
+    <ul>
+      <li id="c1"></li>
+      <li id="c2"></li>
+      <li id="c3"></li>
+      <li id="c4"></li>
+      <li id="c5"></li>
+    </ul>
+
+    <h2 id="h3"></h2>
+    <p id="network1"></p>
+    <p id="network2"></p>
+
+    <h2 id="h4"></h2>
+    <ul>
+      <li id="u1"></li>
+      <li id="u2"></li>
+      <li id="u3"></li>
+      <li id="u4"></li>
+    </ul>
+
+    <h2 id="h5"></h2>
+    <p id="share1"></p>
+    <ul>
+      <li id="s1"></li>
+      <li id="s2"></li>
+      <li id="s3"></li>
+    </ul>
+    <p id="share2"></p>
+
+    <h2 id="h6"></h2>
+    <p id="storage"></p>
+
+    <h2 id="h7"></h2>
+    <p id="children"></p>
+
+    <h2 id="h8"></h2>
+    <ul>
+      <li id="ch1"></li>
+      <li id="ch2"></li>
+      <li id="ch3"></li>
+    </ul>
+
+    <h2 id="h9"></h2>
+    <p id="changes"></p>
+
+    <h2 id="h10"></h2>
+    <p id="scope"></p>
+
+    <footer>
+      <p id="footer"></p>
+      <p class="muted" id="footerNote"></p>
+    </footer>
+  </main>
+
+  <script>
+    const SUPPORT_EMAIL = "zybshahe@163.com";
+    const BUNDLE_ID = "com.xiaoxian.universeclock";
+    const EFFECTIVE = "2026-10-15";
+
+    const LANGS = [
+      { id: "zh-Hans", label: "简体中文" },
+      { id: "zh-Hant", label: "繁體中文" },
+      { id: "en", label: "English" },
+      { id: "ja", label: "日本語" },
+    ];
+
+    const T = {
+      "zh-Hans": {
+        title: "宇宙时钟 · 隐私政策",
+        subtitle: "Universe Clock Privacy Policy",
+        effective: `生效日期：${EFFECTIVE} · 适用于 iOS 应用「宇宙时钟」（Bundle ID: ${BUNDLE_ID}）及其小组件`,
+        intro: "「宇宙时钟」（下称「本应用」）重视您的隐私。本政策说明我们如何处理与本应用相关的信息。若您不同意本政策，请停止使用本应用。",
+        h1: "1. 开发者与联系方式",
+        developer: "开发者：宇宙时钟开发者",
+        contact: "联系邮箱：",
+        h2: "2. 我们处理哪些信息",
+        collectLead: "本应用不要求注册账号，也不运营用于登录的用户系统。",
+        c1: "位置信息（精确位置）：仅在您授权「使用期间」定位后使用，用于在 3D 地球与小组件上标注您的大致位置，并计算当地日出与日落。位置可写入本机 App Group，供主应用与小组件共享读取。",
+        c2: "地点名称：本应用可能通过系统反向地理编码（Apple 系统服务）将坐标解析为城市等地名，仅用于本地展示；该过程可能经系统服务完成。",
+        c3: "本地偏好与展示设置：例如界面语言偏好、场景显示开关、城市标记选择等，默认保存在您的设备本地（含 App Group，供小组件读取）。",
+        c4: "我们不会要求您提供姓名、电子邮箱（除非您主动发信联系我们）、支付卡号等额外身份信息。",
+        c5: "权限由 iOS 管理：您可在系统设置中随时更改定位等权限。",
+        h3: "3. 网络与第三方服务",
+        network1: "本应用当前不向开发者自有服务器上传您的位置、偏好或使用内容。为解析地名，系统反向地理编码可能由 Apple 按其政策处理相关请求。",
+        network2: "若您在应用内选择「去评分」，将跳转至 Apple App Store；安装、更新与商店服务由 Apple 按其隐私政策处理。",
+        h4: "4. 我们如何使用信息",
+        u1: "在地球场景与小组件上显示您的位置相关标注；",
+        u2: "计算并展示当地日出、日落及昼夜相关信息；",
+        u3: "记住您的界面与场景偏好，改善使用体验；",
+        u4: "在您主动联系时，回复支持请求。",
+        h5: "5. 信息共享",
+        share1: "我们不会出售您的个人信息。除下列情况外，我们不会把您的位置或偏好主动提供给第三方：",
+        s1: "应法律要求或有权机关的合法请求；",
+        s2: "为保护用户、公众或开发者的权利、财产与安全所必需；",
+        s3: "您使用 Apple 服务（如定位相关系统服务、App Store）时，由 Apple 按其规则处理。",
+        share2: "本应用当前未集成第三方广告 SDK，也未集成用于跨 App 追踪的广告标识授权（ATT）流程。",
+        h6: "6. 数据存储与保留",
+        storage: "核心数据默认存储在您的设备上。卸载应用或清除应用数据后，本地数据通常会被删除（具体以 iOS 行为为准）。我们不运营用于长期托管您个人位置数据的自有云端账户系统。",
+        h7: "7. 儿童隐私",
+        children: "本应用面向一般用户，不专门面向儿童收集个人信息。若您是监护人并认为未成年人向我们提供了不应提供的信息，请通过上方邮箱联系我们。",
+        h8: "8. 您的选择",
+        ch1: "可在系统设置中关闭定位权限（当地日出日落与位置标注可能不可用）；",
+        ch2: "可不使用依赖定位的功能，仍可浏览时钟与太阳系等内容；",
+        ch3: "可卸载本应用以停止使用并删除本机相关数据（以系统行为为准）。",
+        h9: "9. 政策更新",
+        changes: "我们可能不时更新本政策。更新后会在本页面修订「生效」日期。重大变更时，我们会尽量通过应用商店产品页或其他合理方式提示。",
+        h10: "10. 适用范围",
+        scope: "本政策适用于主应用「宇宙时钟」及其随附的 Widget 小组件（同一产品体系）。",
+        footer: "© 2026 宇宙时钟 Universe Clock。本页面用于 App Store 隐私披露。",
+        footerNote: "如需变更联系邮箱，请与商店联系信息保持一致。",
+      },
+      "zh-Hant": {
+        title: "宇宙時鐘 · 隱私政策",
+        subtitle: "Universe Clock Privacy Policy",
+        effective: `生效日期：${EFFECTIVE} · 適用於 iOS 應用「宇宙時鐘」（Bundle ID: ${BUNDLE_ID}）及其小組件`,
+        intro: "「宇宙時鐘」（下稱「本應用」）重視您的隱私。本政策說明我們如何處理與本應用相關的資訊。若您不同意本政策，請停止使用本應用。",
+        h1: "1. 開發者與聯絡方式",
+        developer: "開發者：宇宙時鐘開發者",
+        contact: "聯絡信箱：",
+        h2: "2. 我們處理哪些資訊",
+        collectLead: "本應用不要求註冊帳號，也不營運用於登入的用戶系統。",
+        c1: "位置資訊（精確位置）：僅在您授權「使用期間」定位後使用，用於在 3D 地球與小組件上標註您的大致位置，並計算當地日出與日落。位置可寫入本機 App Group，供主應用與小組件共享讀取。",
+        c2: "地點名稱：本應用可能透過系統反向地理編碼（Apple 系統服務）將座標解析為城市等地名，僅用於本地展示；該過程可能經系統服務完成。",
+        c3: "本地偏好與顯示設定：例如介面語言偏好、場景顯示開關、城市標記選擇等，預設保存在您的裝置本地（含 App Group，供小組件讀取）。",
+        c4: "我們不會要求您提供姓名、電子信箱（除非您主動寄信聯絡我們）、支付卡號等額外身分資訊。",
+        c5: "權限由 iOS 管理：您可在系統設定中隨時變更定位等權限。",
+        h3: "3. 網路與第三方服務",
+        network1: "本應用目前不向開發者自有伺服器上傳您的位置、偏好或使用內容。為解析地名，系統反向地理編碼可能由 Apple 依其政策處理相關請求。",
+        network2: "若您在應用內選擇「去評分」，將跳轉至 Apple App Store；安裝、更新與商店服務由 Apple 依其隱私政策處理。",
+        h4: "4. 我們如何使用資訊",
+        u1: "在地球場景與小組件上顯示您的位置相關標註；",
+        u2: "計算並展示當地日出、日落及晝夜相關資訊；",
+        u3: "記住您的介面與場景偏好，改善使用體驗；",
+        u4: "在您主動聯絡時，回覆支援請求。",
+        h5: "5. 資訊共享",
+        share1: "我們不會出售您的個人資訊。除下列情況外，我們不會把您的位置或偏好主動提供給第三方：",
+        s1: "應法律要求或有權機關的合法請求；",
+        s2: "為保護用戶、公眾或開發者的權利、財產與安全所必需；",
+        s3: "您使用 Apple 服務（如定位相關系統服務、App Store）時，由 Apple 依其規則處理。",
+        share2: "本應用目前未整合第三方廣告 SDK，也未整合用於跨 App 追蹤的廣告識別授權（ATT）流程。",
+        h6: "6. 資料儲存與保留",
+        storage: "核心資料預設儲存在您的裝置上。解除安裝應用或清除應用資料後，本地資料通常會被刪除（具體以 iOS 行為為準）。我們不營運用於長期託管您個人位置資料的自有雲端帳號系統。",
+        h7: "7. 兒童隱私",
+        children: "本應用面向一般用戶，不專門面向兒童收集個人資訊。若您是監護人並認為未成年人向我們提供了不應提供的資訊，請透過上方信箱聯絡我們。",
+        h8: "8. 您的選擇",
+        ch1: "可在系統設定中關閉定位權限（當地日出日落與位置標註可能無法使用）；",
+        ch2: "可不使用依賴定位的功能，仍可瀏覽時鐘與太陽系等內容；",
+        ch3: "可解除安裝本應用以停止使用並刪除本機相關資料（以系統行為為準）。",
+        h9: "9. 政策更新",
+        changes: "我們可能不時更新本政策。更新後會在本頁面修訂「生效」日期。重大變更時，我們會盡量透過應用商店產品頁或其他合理方式提示。",
+        h10: "10. 適用範圍",
+        scope: "本政策適用於主應用「宇宙時鐘」及其隨附的 Widget 小組件（同一產品體系）。",
+        footer: "© 2026 宇宙時鐘 Universe Clock。本頁面用於 App Store 隱私披露。",
+        footerNote: "如需變更聯絡信箱，請與商店聯絡資訊保持一致。",
+      },
+      en: {
+        title: "Universe Clock · Privacy Policy",
+        subtitle: "宇宙时钟 Privacy Policy",
+        effective: `Effective: ${EFFECTIVE} · Applies to the iOS app “Universe Clock” (Bundle ID: ${BUNDLE_ID}) and its widget`,
+        intro: "Universe Clock (“the App”) respects your privacy. This Policy explains how information related to the App is handled. If you do not agree, please stop using the App.",
+        h1: "1. Developer & Contact",
+        developer: "Developer: Universe Clock developer",
+        contact: "Contact:",
+        h2: "2. Information We Handle",
+        collectLead: "The App does not require account registration and does not operate a login-based user system.",
+        c1: "Location (precise): used only after you grant When In Use permission, to mark your approximate place on the 3D Earth and widget, and to calculate local sunrise and sunset. Location may be stored in an on-device App Group shared by the app and widget.",
+        c2: "Place names: the App may use system reverse geocoding (Apple system services) to resolve coordinates into city names for on-device display; this may involve Apple system services.",
+        c3: "Local preferences and display settings: such as language preference, scene toggles, and city-marker selections, stored on your device by default (including App Group for the widget).",
+        c4: "We do not require your name, email (unless you contact us), payment card numbers, or other extra identity details.",
+        c5: "Permissions are managed by iOS; you can change location access anytime in Settings.",
+        h3: "3. Network & Third-Party Services",
+        network1: "The App does not upload your location, preferences, or content to developer-operated servers. Reverse geocoding may be processed by Apple under Apple’s policies.",
+        network2: "If you choose “Rate App”, you are taken to the Apple App Store. Install, update, and store services are processed by Apple under Apple’s privacy policy.",
+        h4: "4. How We Use Information",
+        u1: "Show location-related markers on Earth and the widget;",
+        u2: "Calculate and display local sunrise, sunset, and day/night related information;",
+        u3: "Remember your interface and scene preferences;",
+        u4: "Respond to support requests when you contact us.",
+        h5: "5. Sharing",
+        share1: "We do not sell your personal information. We do not voluntarily share your location or preferences with third parties except:",
+        s1: "when required by law or lawful authority requests;",
+        s2: "when necessary to protect users, the public, or the developer’s rights and safety;",
+        s3: "when you use Apple services (such as system location/geocoding services or the App Store), which Apple processes under its rules.",
+        share2: "The App currently does not integrate third-party advertising SDKs and does not use App Tracking Transparency for cross-app tracking ads.",
+        h6: "6. Storage & Retention",
+        storage: "Core data is stored on your device by default. Uninstalling the App or clearing app data typically removes local data (subject to iOS behavior). We do not operate a first-party cloud account system to host your personal location data long-term.",
+        h7: "7. Children’s Privacy",
+        children: "The App is for a general audience and is not directed at collecting personal information from children. Guardians who believe a minor provided information inappropriately may contact us via the email above.",
+        h8: "8. Your Choices",
+        ch1: "Disable location permission in system Settings (local sunrise/sunset and location markers may become unavailable);",
+        ch2: "Use the clock and solar-system features without enabling location;",
+        ch3: "Uninstall the App to stop using it and remove related on-device data (subject to system behavior).",
+        h9: "9. Changes",
+        changes: "We may update this Policy from time to time and will revise the effective date on this page. For material changes, we will try to provide reasonable notice via the App Store product page or other appropriate means.",
+        h10: "10. Scope",
+        scope: "This Policy covers the main Universe Clock iOS app and its accompanying Widget in the same product.",
+        footer: "© 2026 Universe Clock. This page is provided for App Store privacy disclosure.",
+        footerNote: "Keep the contact email consistent with App Store contact information.",
+      },
+      ja: {
+        title: "宇宙時計 · プライバシーポリシー",
+        subtitle: "Universe Clock Privacy Policy",
+        effective: `施行日：${EFFECTIVE} · iOS アプリ「宇宙時計」（Bundle ID: ${BUNDLE_ID}）およびウィジェットに適用`,
+        intro: "「宇宙時計」（以下「本アプリ」）はプライバシーを尊重します。本ポリシーは、本アプリに関連する情報の取り扱いを説明します。同意できない場合はご利用をお控えください。",
+        h1: "1. 開発者・連絡先",
+        developer: "開発者：宇宙時計開発者",
+        contact: "連絡先：",
+        h2: "2. 取り扱う情報",
+        collectLead: "本アプリはアカウント登録を必要とせず、ログイン用のユーザーシステムも運営していません。",
+        c1: "位置情報（高精度）：「使用中」の許可後にのみ使用し、3D 地球とウィジェット上であなたのおおよその位置を示し、現地の日の出・日の入りを計算します。位置は端末内の App Group に保存され、本体とウィジェットで共有される場合があります。",
+        c2: "地名：システム逆ジオコーディング（Apple のシステムサービス）により座標を都市名などへ変換し、端末内表示のみに使用する場合があります。処理はシステムサービス経由となることがあります。",
+        c3: "端末内の設定：言語設定、表示スイッチ、都市マーカー選択などは、原則として端末内（ウィジェット用 App Group を含む）に保存されます。",
+        c4: "氏名、メールアドレス（ご自身から連絡する場合を除く）、カード番号などの追加の本人確認情報は求めません。",
+        c5: "権限は iOS が管理します。位置情報などは設定からいつでも変更できます。",
+        h3: "3. ネットワークと第三者サービス",
+        network1: "本アプリは、位置・設定・利用内容を開発者の自社サーバーへアップロードしません。地名解決のための逆ジオコーディングは、Apple の方針に従って処理される場合があります。",
+        network2: "アプリ内で「評価する」を選ぶと Apple App Store へ移動します。インストール、更新、ストア関連は Apple のプライバシーポリシーに従います。",
+        h4: "4. 利用目的",
+        u1: "地球シーンおよびウィジェットでの位置関連表示；",
+        u2: "現地の日の出・日の入りおよび昼夜関連情報の計算・表示；",
+        u3: "画面・シーン設定の保持；",
+        u4: "ご連絡いただいた際のサポート対応。",
+        h5: "5. 共有",
+        share1: "個人情報を販売しません。次の場合を除き、位置や設定を第三者へ自発的に提供しません：",
+        s1: "法令または権限ある機関の適法な要請；",
+        s2: "利用者・公衆・開発者の権利・財産・安全の保護に必要な場合；",
+        s3: "Apple のサービス（位置関連システムサービス、App Store など）を利用する場合（Apple の規則に従う）。",
+        share2: "本アプリは現在、第三者広告 SDK を組み込んでおらず、クロスアプリ追跡広告のための ATT も使用していません。",
+        h6: "6. 保存と保持",
+        storage: "主要なデータは原則として端末内に保存されます。アプリアンインストールやデータ削除により、端末内データは通常削除されます（iOS の動作に従います）。個人の位置データを長期保管する自社クラウドアカウントは運営していません。",
+        h7: "7. 子どものプライバシー",
+        children: "本アプリは一般向けであり、子どもから個人情報を収集することを目的としません。保護者の方が不適切な提供があったと考える場合は、上記メールまでご連絡ください。",
+        h8: "8. お客様の選択",
+        ch1: "システム設定で位置情報をオフにできます（日の出・日の入りや位置表示が使えなくなる場合があります）；",
+        ch2: "位置情報を使わずに時計や太陽系などの機能を利用できます；",
+        ch3: "アプリを削除して利用を終了し、関連する端末内データを削除できます（システム動作に従います）。",
+        h9: "9. 変更",
+        changes: "本ポリシーは随時更新されることがあり、本ページの施行日を改訂します。重要な変更については、App Store の製品ページ等で合理的なお知らせに努めます。",
+        h10: "10. 適用範囲",
+        scope: "本ポリシーは、本体アプリ「宇宙時計」および付属ウィジェット（同一製品）に適用されます。",
+        footer: "© 2026 宇宙時計 Universe Clock。本ページは App Store のプライバシー開示用です。",
+        footerNote: "連絡先メールは App Store の連絡先と一致させてください。",
+      },
+    };
+
+    const IDS = [
+      "title", "subtitle", "effective", "intro",
+      "h1", "developer", "contact",
+      "h2", "collectLead", "c1", "c2", "c3", "c4", "c5",
+      "h3", "network1", "network2",
+      "h4", "u1", "u2", "u3", "u4",
+      "h5", "share1", "s1", "s2", "s3", "share2",
+      "h6", "storage",
+      "h7", "children",
+      "h8", "ch1", "ch2", "ch3",
+      "h9", "changes",
+      "h10", "scope",
+      "footer", "footerNote",
+    ];
+
+    function detectLang() {
+      const raw = (navigator.language || "en").toLowerCase();
+      if (raw.startsWith("zh")) {
+        if (raw.includes("hant") || raw.includes("tw") || raw.includes("hk") || raw.includes("mo")) {
+          return "zh-Hant";
+        }
+        return "zh-Hans";
+      }
+      if (raw.startsWith("ja")) return "ja";
+      return "en";
+    }
+
+    function apply(lang) {
+      const t = T[lang] || T.en;
+      document.documentElement.lang = lang;
+      document.title = t.title + " · Privacy";
+      IDS.forEach((id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        if (id === "contact") {
+          el.innerHTML = `${t.contact} <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>`;
+        } else {
+          el.textContent = t[id] || "";
+        }
+      });
+      document.querySelectorAll(".lang-switch button").forEach((btn) => {
+        btn.classList.toggle("active", btn.dataset.lang === lang);
+      });
+      try { localStorage.setItem("uc-privacy-lang", lang); } catch (_) {}
+    }
+
+    function boot() {
+      const switchEl = document.getElementById("langSwitch");
+      LANGS.forEach(({ id, label }) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.textContent = label;
+        btn.dataset.lang = id;
+        btn.addEventListener("click", () => apply(id));
+        switchEl.appendChild(btn);
+      });
+      let lang = detectLang();
+      try {
+        const saved = localStorage.getItem("uc-privacy-lang");
+        if (saved && T[saved]) lang = saved;
+      } catch (_) {}
+      apply(lang);
+    }
+
+    boot();
+  </script>
+</body>
+</html>
